@@ -1,0 +1,10 @@
+sr1 = data.loc[:,"P-value"]
+sr2 = sr1.sort_values()
+sr3 = sr2.reset_index(dro=True)
+lis = []
+for i in sr1:
+  x = np.where(sr3==i)
+  lis.append(x[0][0] + 1)
+sr4 = pd.Series(lis)
+sr5 = sr1 * len(sr1) / sr4
+
